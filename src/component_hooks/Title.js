@@ -4,12 +4,12 @@ function Title(props) {
   return (
     <h1>
       <a
-        href="#"
+        href="#!"
         onClick={() => {
           props.setMode("welcome");
         }}
       >
-        WEB_with_fuction
+        WEB with fuction component!
       </a>
     </h1>
   );

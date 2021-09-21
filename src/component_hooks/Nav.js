@@ -3,9 +3,10 @@ import React from "react";
 function Nav(props) {
   return (
     <ul>
-      <li>
+      <li key="new">
         <a
-          href="#"
+          key="new"
+          href="#!"
           onClick={() => {
             props.setMode("create");
           }}
@@ -13,29 +14,21 @@ function Nav(props) {
           New
         </a>
       </li>
-      <li>
+      <li key="update">
         <a
-          href="#"
+          key="update"
+          href="#!"
           onClick={() => {
-            for (let i = 0; i < props.contents.length; i++) {
-              if (props.contents[i].id === props.mode) {
-                props.setUpdateTarget({
-                  id: props.contents[i].id,
-                  title: props.contents[i].title,
-                  content: props.contents[i].content,
-                });
-                props.setMode("update");
-                break;
-              }
-            }
+            props.setMode("update");
           }}
         >
           Update
         </a>
       </li>
-      <li>
+      <li key="delete">
         <a
-          href="#"
+          key="delete"
+          href="#!"
           onClick={(e) => {
             e.preventDefault();
             props.deleteContent(props.mode);

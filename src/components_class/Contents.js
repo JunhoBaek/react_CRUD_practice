@@ -20,7 +20,7 @@ class Contents extends React.Component {
         </li>
       );
     }
-    return <ul>{result}</ul>;
+    return <ul key="contents">{result}</ul>;
   }
 }
 

@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
 function Content(props) {
   if (props.mode === "welcome") {
     return <h1>Welcome WEB!</h1>;
   }
-  if (typeof props.mode === "number") {
+  if (props.mode === "read") {
     for (let i = 0; i < props.contents.length; i++) {
-      if (props.contents[i].id === props.mode) {
+      if (props.contents[i].id === props.present.id) {
         return <h1>{props.contents[i].content}</h1>;
       }
     }
@@ -24,6 +24,7 @@ function Content(props) {
             const c = e.target.form[1].value;
             props.addContent(props.nextId, t, c);
             props.setNextId(props.nextId + 1);
+            props.setMode("welcome");
           }}
         ></input>
       </form>
@@ -40,7 +41,8 @@ function Content(props) {
             e.preventDefault();
             const t = e.target.form[0].value;
             const c = e.target.form[1].value;
-            props.updateContent(props.updateTarget.id, t, c);
+            props.updateContent(props.present.id, t, c);
+            props.setMode("welcome");
           }}
         ></input>
       </form>

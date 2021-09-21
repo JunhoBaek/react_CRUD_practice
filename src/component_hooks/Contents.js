@@ -2,14 +2,19 @@ import React from "react";
 
 function Contents(props) {
   return (
-    <ul>
+    <ul key="contents">
       {props.contents.map((content) => (
         <li key={content.id}>
           <a
-            href="#"
             key={content.id}
+            href="#!"
             onClick={() => {
-              props.setMode(content.id);
+              props.setMode("read");
+              props.setPresent({
+                id: content.id,
+                title: content.title,
+                content: content.content,
+              });
             }}
           >
             {content.title}

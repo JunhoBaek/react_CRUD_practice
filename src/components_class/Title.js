@@ -8,7 +8,7 @@ class Title extends React.Component {
           this.props.onChangeMode("welcome");
         }}
       >
-        <a href="#">Web with class compo!</a>
+        <a href="#!">Web with class component!</a>
       </h1>
     );
   }

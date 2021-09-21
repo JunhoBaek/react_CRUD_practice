@@ -5,10 +5,8 @@ import Nav from "./component_hooks/Nav";
 import Content from "./component_hooks/Content";
 import "./AppHook.css";
 
-// 리팩토링! / 수정 시 기존 내용 input에 담은 상태로 시작 구현!
-
 function AppHook() {
-  const [updateTarget, setUpdateTarget] = useState({
+  const [present, setPresent] = useState({
     id: null,
     title: null,
     content: null,
@@ -69,21 +67,27 @@ function AppHook() {
   return (
     <div className="App_hook">
       <Title setMode={setMode}></Title>
-      <Contents contents={contents} setMode={setMode}></Contents>
+      <Contents
+        contents={contents}
+        setMode={setMode}
+        present={present}
+        setPresent={setPresent}
+      ></Contents>
       <Nav
+        present={present}
         contents={contents}
         setMode={setMode}
         mode={mode}
         deleteContent={deleteContent}
-        setUpdateTarget={setUpdateTarget}
       ></Nav>
       <Content
+        setMode={setMode}
+        present={present}
         mode={mode}
         contents={contents}
         addContent={addContent}
         nextId={nextId}
         setNextId={setNextId}
-        updateTarget={updateTarget}
         updateContent={updateContent}
       ></Content>
     </div>
