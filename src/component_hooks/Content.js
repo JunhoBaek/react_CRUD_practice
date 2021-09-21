@@ -33,8 +33,8 @@ function Content(props) {
   if (props.mode === "update") {
     return (
       <form>
-        <input></input>
-        <textarea></textarea>
+        <input name="title"></input>
+        <textarea name="content"></textarea>
         <input
           type="submit"
           onClick={(e) => {
